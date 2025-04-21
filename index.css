@@ -1,0 +1,190 @@
+:root {
+  --bg: #ffffff;
+  --text: #2c3e50;
+  --task-bg: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.05);
+}
+
+.dark {
+  --bg: #1e1e1e;
+  --text: #f5f5f5;
+  --task-bg: #2a2a2a;
+  --shadow: rgba(255, 255, 255, 0.05);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+
+.ToDoList {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 40px;
+  background-color: var(--task-bg);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px var(--shadow);
+  transition: background-color 0.5s ease;
+  font-weight: 30px;
+  font-size: 29px;
+}
+
+.ToDoList h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 25px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.ToDoList input[type="text"] {
+  flex: 1;
+  min-width: 250px;
+  padding: 12px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.ToDoList input[type="text"]:focus {
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+.Add-Button, .Toggle-Mode {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.Add-Button {
+  background-color: #3498db;
+  color: white;
+}
+.Add-Button:hover {
+  background-color: #2980b9;
+}
+
+.Toggle-Mode {
+  background-color: #555;
+  color: white;
+}
+.Toggle-Mode:hover {
+  background-color: #333;
+}
+
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+.ToDoList li {
+  list-style: none;
+  background: var(--task-bg);
+  margin-bottom: 15px;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.text {
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 10px;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.Delete-Button,
+.Up-Button,
+.Down-Button {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s ease-in-out;
+}
+
+.Delete-Button {
+  background-color: #e74c3c;
+  color: white;
+}
+.Delete-Button:hover {
+  background-color: #c0392b;
+  transform: scale(1.05);
+}
+
+.Up-Button {
+  background-color: #2ecc71;
+  color: white;
+}
+.Up-Button:hover {
+  background-color: #27ae60;
+  transform: scale(1.05);
+}
+
+.Down-Button {
+  background-color: #f1c40f;
+  color: white;
+}
+.Down-Button:hover {
+  background-color: #d4ac0d;
+  transform: scale(1.05);
+}
+
+/* Smooth animation */
+.move-up {
+  animation: moveUp 0.6s ease-in-out;
+}
+.move-down {
+  animation: moveDown 0.6s ease-in-out;
+}
+
+@keyframes moveUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes moveDown {
+  from {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
